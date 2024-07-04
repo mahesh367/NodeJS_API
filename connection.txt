@@ -1,0 +1,20 @@
+const { json } = require('body-parser');
+const mysql= require('mysql2');
+var mysqlConnection=mysql.createConnection({
+
+    host:'localhost',
+    user:'root',
+    password:'root',
+    database:'employeedb'
+
+
+})
+
+mysqlConnection.connect((error)=>{
+    if(error){
+        console.log('Error in Db connection'+JSON.stringify(error,undefined,2));
+    }else{
+        console.log('Db connection Successfully');
+    }
+})
+module.exports=mysqlConnection
